@@ -2,6 +2,7 @@
 const program = require('commander')
 const download = require("download-git-repo")
 const inquirer = require('inquirer')
+const chalk = require('chalk')
 
 // 获取package.json中的版本信息
 program.version(require("../package.json").version)
@@ -29,23 +30,23 @@ program
 				switch (frameWork) {
 					case 'React':
 						download(
-							'direct:git@github.com:ys558/ych-template.git#main',
+							'direct:git@github.com:ys558/ych-template.git',
 							projectName,
 							{ clone: true },
 							(err) => {
 								// 错误回调：
-								if (err) console.log(err)
-								console.log(`${projectName} 项目创建成功`)
+								if (err) console.log(chalk.bgYellow(err))
+								console.log(`${chalk.greenBright(projectName)} ${chalk.greenBright('项目创建成功')}`)
 							})
 						break;
 					case 'Vue':
 						download(
-							'direct:git@github.com:ys558/ych-template.git#main',
+							'direct:git@github.com:ys558/ych-template.git',
 							projectName,
 							{ clone: true },
 							(err) => {
 								// 错误回调：
-								if (err) console.log(err)
+								if (err) console.log(chalk.bgYellow(err))
 								console.log(`${projectName} 项目创建成功`)
 							})
 						break;
