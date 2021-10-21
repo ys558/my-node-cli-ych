@@ -13,6 +13,11 @@ const create = program.command('create')
 program.version(require('../package.json').version, '-v --version')
 
 
+figlet.defaults({font: 'Standard'})
+function logo(){
+	console.log(figlet.textSync('hi ych!'));
+}
+
 const questions = [
 	{
 		type: 'input',
@@ -36,6 +41,8 @@ create
 	.option('-js', '项目用java script')
 	.action((option) => {
 		console.log(option)
+		logo()
+
 		inquirer.prompt(questions)
 			.then(({projectName, frameWork}) => {
 				switch (frameWork) {
