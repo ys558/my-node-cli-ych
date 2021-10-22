@@ -14,7 +14,7 @@ import ProgressBar from 'progress'
 const program = new commander.Command()
 const create = program.command('create')
 
-// ! node 不能直接import json无尽，所以，得从package.json中获取版本信息的require也得修改为利用fs模块读取json文件
+// ! node 不能直接import json，所以，得从package.json中获取版本信息的require也得修改为利用fs模块读取json文件
 import fs from 'fs'
 const versionFile = fs.readFileSync('package.json')
 const v =JSON.parse(versionFile)
@@ -42,8 +42,6 @@ const questions = [
 	},
 ]
 
-// loading效果
-const spinner = ora()
 // const bar = new ProgressBar(':bar :current/:total', {total: 10})
 // const timer = setInterval(() => {
 // 	bar.tick()
@@ -62,12 +60,15 @@ create
 	.option('-js', '项目用java script')
 	.action((option) => {
 		// 参数在.action()回调函数中可以获取到：
-		console.log(option)
+		// console.log(option)
 		logo()
 
 		// 交互输入
 		inquirer.prompt(questions)
 			.then(({projectName, frameWork}) => {
+				// loading效果
+				const spinner = ora("下载初始化模板中...")
+				spinner.start()
 				switch (frameWork) {
 					case 'React':
 						download(
