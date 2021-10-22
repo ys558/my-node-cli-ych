@@ -23,7 +23,7 @@ program.version(v.version, '-v --version')
 // 大字体
 figlet.defaults({font: 'Standard'})
 function logo(){
-	console.log(figlet.textSync('hi ych!'));
+	console.log(figlet.textSync('hi yyt!'));
 }
 
 // 交互输入
@@ -72,7 +72,7 @@ create
 				switch (frameWork) {
 					case 'React':
 						download(
-							'direct:git@github.com:ys558/ych-template.git#main',
+							'direct:git@github.com:ys558/yyt-template.git#main',
 							projectName,
 							{ clone: true },
 							(err) => {
@@ -88,7 +88,7 @@ create
 						break;
 					case 'Vue':
 						download(
-							'direct:git@github.com:ys558/ych-template.git#main',
+							'direct:git@github.com:ys558/yyt-template.git#main',
 							projectName,
 							{ clone: true },
 							(err) => {

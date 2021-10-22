@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "ych": "./bin/ych.js"
+    "yyt": "./bin/yyt.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",
